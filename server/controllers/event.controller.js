@@ -117,7 +117,7 @@ exports.deleteOne = (req, res) => {
 
 exports.updateStatusToDate = (req, res) => {
   Event.update(
-    { status: "completed" },
+    { status: "not-approved" },
     {
       where: {
         [Op.or]: [{ status: "ongoing" }, { status: "upcoming" }],
