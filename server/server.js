@@ -1,3 +1,4 @@
+//git commit -m "made and update status in events"
 var cors = require("cors");
 const db = require("./models");
 
@@ -8,7 +9,6 @@ const app = express();
 app.use(cors());
 
 const PORT = process.env.PORT || 3000;
-
 
 app.use(bodyParser.urlencoded({ extended: true }));
 

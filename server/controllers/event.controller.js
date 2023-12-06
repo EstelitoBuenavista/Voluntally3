@@ -6,6 +6,7 @@ const { where } = require("sequelize");
 const db = require("../models");
 const Op = db.Sequelize.Op;
 const Event = db.event;
+const Event_attendance = db.event_attendance;
 
 exports.create = async (req, res) => {
   const data = req.body;
@@ -100,14 +101,53 @@ exports.delete = (req, res) => {
     });
 };
 
-exports.deleteOne = (req, res) => {
-  //options
-  let id = req.params.id;
+exports.findNumberOfRegistrants = (req, res) => {
+  data = req.body;
+  Event_attendance.findAll({
+    attributes: [[db.sequelize.literal("COUNT(*)"), "count"]],
+    where: { event_id: data.event_id },
+    group: ["event_id"],
+  })
+    .then((data) => {
+      //the return is an array of objects so the first index is where the values are
+      res.send(data[0]);
+    })
+    .catch((err) => {
+      res.status(500).send({ message: err.message });
+    });
+};
 
-  Event.destroy({ where: { event_id: id } })
+exports.findNumberOfAttendees = (req, res) => {
+  const data = req.body;
+  Event_attendance.findAll({
+    attributes: [[db.sequelize.literal("COUNT(*)"), "count"]],
+    where: { event_id: data.event_id },
+    include: [
+      {
+        model: Event,
+        where: {
+          event_id: data.event_id,
+          status: "approved",
+        },
+      },
+    ],
+    group: ["event_id"],
+  })
+    .then((data) => {
+      //the return is an array of objects so the first index is where the values are
+      res.send(data[0]);
+    })
+    .catch((err) => {
+      res.status(500).send({ message: err.message });
+    });
+};
+
+exports.updateStatus = (req, res) => {
+  let data = req.body;
+  Event.update({ status: data.status }, { where: { event_id: data.event_id } })
     .then(() => {
       res.status(200).send({
-        message: "event deleted successfully",
+        message: "event updated successfully",
       });
     })
     .catch((err) => {
@@ -121,16 +161,27 @@ exports.updateStatusToDate = (req, res) => {
     {
       where: {
         [Op.or]: [{ status: "ongoing" }, { status: "upcoming" }],
-        [Op.and]: [{ event_date: new Date() }],
+        [Op.and]: [
+          //MARY'S NOTES: LT MEANS LESS THAN BTW DON'T FORGET
+          { event_date: { [Op.lt]: new Date() } },
+        ],
       },
     }
   )
-    .then(() => {
-      res.status(200).send({
-        message: "updated the times frfr",
-      });
+    .then((result) => {
+      const affectedRows = result[0];
+      if (affectedRows > 0) {
+        res.status(200).send({
+          message: "status updated successfully frfr",
+        });
+      } else {
+        res.status(200).send({
+          message: "status updated unsuccessfully://",
+        });
+      }
     })
     .catch((err) => {
+      console.error("Error: ", err);
       res.status(500).send({ message: err.message });
     });
 };

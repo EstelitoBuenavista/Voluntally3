@@ -3,12 +3,14 @@ module.exports = (app) => {
   let router = require("express").Router();
 
   router.get("/", event.findAll);
+  router.get("/findRegistrants", event.findNumberOfRegistrants);
+  router.get("/findAttendees", event.findNumberOfAttendees);
   router.get("/findEvent", event.findEventByID);
   router.get("/findStatus", event.findEventByStatus);
   router.post("/create", event.create);
-  router.delete("/:id", event.deleteOne)
   router.delete("/delete", event.delete);
   router.put("/update", event.update);
+  router.put("/updateStatusNA", event.updateStatusToDate);
 
   app.use("/api/event", router);
 };

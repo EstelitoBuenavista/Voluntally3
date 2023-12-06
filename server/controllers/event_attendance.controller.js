@@ -1,13 +1,14 @@
 const db = require("../models");
 const Op = db.Sequelize.Op;
-const Event_attendance = db.Event_attendance;
+const Event_attendance = db.event_attendance;
 // const Event = db.event;
 // const Student = db.student;
 
+//create is a bit wonky, need to fix, can't create without a legit student (which doesnt make it wonky but postman you know)
 exports.create = async (req, res) => {
   const data = req.body.data;
   const event_attendance = {
-    att_status: data.att_status,
+    //att_status: data.att_status,
     student_id: data.student_id,
     event_id: data.event_id,
   };
