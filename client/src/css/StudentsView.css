@@ -1,0 +1,17 @@
+.StudentsView__heading {
+  margin-bottom: 24px;
+  font-size: clamp(2rem, 3lvw, 3rem);
+}
+
+.StudentsView__menu {
+  display: flex;
+  gap: 8px;
+}
+
+.StudentsView__menu button svg {
+  width: 24px;
+}
+
+.StudentsView__menu > .ButtonAdd {
+  margin-right: auto;
+}

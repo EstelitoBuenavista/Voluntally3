@@ -1,0 +1,35 @@
+.Header {
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  padding-left: 32px;
+  padding-right: 32px;
+  background-color: var(--primary);
+  border-bottom: 4px var(--secondary) solid;
+}
+
+#Header__logo {
+  height: 60px;
+  cursor: pointer;
+}
+
+#Header__profile {
+  height: 70px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.Header__link{
+  max-width: 10%;
+}
+
+@media screen and (max-width: 768px) {
+  .Header {
+    padding: 0 16px;
+  }
+  .Header__logo {
+    height: 60%;
+  }
+}

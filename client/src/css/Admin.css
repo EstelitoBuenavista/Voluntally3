@@ -1,0 +1,40 @@
+.Admin {
+  width: 100%;
+}
+
+.Admin__nav {
+  position: fixed;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.Admin__nav__option {
+  all: unset;
+  background-color: var(--surface);
+  padding: 0.75lvw 1lvw 0.75lvw 0.5lvw;
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+  color: var(--primary);
+  border: 1.5px solid var(--primary);
+  text-transform: uppercase;
+  font-weight: 700;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.Admin__nav__option:hover {
+  background-color: var(--primary-alt);
+  color: var(--surface);
+}
+
+.Admin__nav__option.active {
+  background-color: var(--primary);
+  color: var(--surface);
+}
+
+.Admin__nav__option svg {
+  width: 32px;
+  height: 32px;
+}

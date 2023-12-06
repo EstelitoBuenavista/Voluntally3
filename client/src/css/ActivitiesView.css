@@ -1,0 +1,21 @@
+.ActivitiesView__heading {
+  margin-bottom: 24px;
+  font-size: clamp(2rem, 3lvw, 3rem);
+}
+
+.ActivitiesView__menu {
+  display: flex;
+  gap: 8px;
+}
+
+.ActivitiesView__menu button svg {
+  width: 24px;
+}
+
+.ActivitiesView__menu > .ButtonAdd {
+  margin-right: auto;
+}
+
+.ActivitiesView{
+  overflow-x: auto;
+}

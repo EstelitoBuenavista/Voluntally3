@@ -1,0 +1,54 @@
+.Add{
+    display: block;
+}
+
+.flex{
+    display: flex ;
+	gap: 5%;
+}
+
+input[type = "text"] {
+    border-radius: 18px;
+    padding: 20px; 
+    height: 15px; 
+    width: 100%;
+	margin-bottom: 20px;
+	border: none;
+	background-color: #f2f2f2;
+	font-size: 16px;
+}   
+
+
+.container {
+	width: 400px;
+	margin: 20px auto;
+	padding: 20px;
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    text-align: center;
+}
+
+label {
+	display: block;
+	font-size: 16px;
+	color: #333;
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+
+.addButton{
+    background-color: #333;
+	color: #fff;
+	padding: 10px 20px;
+	border-radius: 3px;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+.CourseYearAdd{
+	display: block;
+	gap: 5%;
+}

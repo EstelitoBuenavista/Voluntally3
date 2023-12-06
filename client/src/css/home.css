@@ -1,0 +1,22 @@
+
+.home {
+    width: 100%;
+  }
+  
+  .home_heading {
+    margin: 32px 0;
+    font-size: clamp(2rem, 3lvw, 3rem);
+  }
+  
+  .upcomingEvents {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 32px;
+  }
+  
+  @media screen and (max-width: 426px) {
+    .upcomingEvents {
+      grid-template-columns: 1fr;
+    }
+  }

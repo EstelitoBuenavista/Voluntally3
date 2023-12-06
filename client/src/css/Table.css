@@ -1,0 +1,27 @@
+.Table {
+  margin-top: 32px;
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--outline);
+}
+
+.Table__header {
+  font-size: 1.2rem;
+  font-weight: 500;
+  background-color: var(--primary);
+  color: var(--surface);
+  padding: 8px 16px;
+  text-align: left;
+}
+
+.Table tr:nth-child(2n) td {
+  background-color: var(--table-row-odd);
+}
+
+.Table__data {
+  background-color: var(--white);
+  padding: 8px 4px;
+  padding-left: 16px;
+}

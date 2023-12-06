@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600&display=swap');
+
+:root {
+  --primary: #007638;
+  --primary-alt: #006630;
+  --secondary: #fbbf16;
+  --secondary-alt: #7e8b0b;
+  --tertiary: #0e3c00;
+  --background: #f4fbf7;
+  --text: #0a0a0a;
+  --subtext: #ababab;
+  --text-on-dark: #edfaf0;
+  --text-on-dark-sub: #e2e7e3;
+  --surface: #f7fff9;
+  --white: #fff;
+  --outline: 0 0 4px rgba(0, 0, 0, 0.2);
+  --outline-hover: 0 0 12px rgba(0, 0, 0, 0.15);
+  --table-row-odd: #edfaf3;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: var(--background);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html,
+#root {
+  height: 100%;
+}

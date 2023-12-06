@@ -1,0 +1,22 @@
+
+.Profile {
+  width: 100%;
+}
+
+.Profile__heading {
+  margin: 32px 0;
+  font-size: clamp(2rem, 3lvw, 3rem);
+}
+
+.Profile__events {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+@media screen and (max-width: 426px) {
+  .Profile__events {
+    grid-template-columns: 1fr;
+  }
+}
