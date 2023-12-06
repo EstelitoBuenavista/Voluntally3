@@ -1,0 +1,44 @@
+const { Sequelize, DataTypes } = require("sequelize");
+
+module.exports = (sequelize, Datatypes) => {
+  const Event = sequelize.define("event", {
+    event_id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    event_title: { type: DataTypes.STRING, unique: false, allowNull: false },
+    event_description: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    event_date: {
+      type: DataTypes.DATE,
+      unique: false,
+      defaultValue: null,
+    },
+    event_loc: {
+      type: DataTypes.STRING,
+      defaultValue: null,
+    },
+    no_of_att: {
+      type: DataTypes.INTEGER,
+      defaultValue: null,
+    },
+    no_of_reg: {
+      type: DataTypes.INTEGER,
+      defaultValue: null,
+    },
+    status: {
+      type: DataTypes.ENUM("ongoing", "upcoming", "not-approved", "completed"),
+      defaultValue: "not-approved",
+    },
+    CES_points: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0,
+    },
+  });
+
+  return Event;
+};

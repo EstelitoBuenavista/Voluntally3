@@ -1,0 +1,33 @@
+const { Sequelize, DataTypes } = require("sequelize");
+
+module.exports = (sequelize, Datatypes) => {
+  const Event_attendance = sequelize.define("event_attendance", {
+    e_a_id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    event_id: {
+      type: DataTypes.INTEGER,
+      unique: false,
+      allowNull: false,
+      references: {
+        model: "events",
+        key: "event_id",
+      },
+    },
+    student_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: "students",
+        key: "student_id",
+      },
+    },
+    att_status: {
+      type: DataTypes.ENUM("absent", "pending", "approved"),
+    },
+  });
+
+  return Event_attendance;
+};
